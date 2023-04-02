@@ -1,0 +1,28 @@
+ <Lines>
+            <Line Index="0" CreationDate="2023-01-02T09:00:59" Type="Standard" ParentIndex="" ProductId="17" ProductName="Café con leche" SaleFormatId="17" SaleFormatName="Café con leche" SaleFormatRatio="1.00" MainBarcode="" ProductPrice="1.80" VatId="3" VatRate="0.10" SurchargeRate="0.014" ProductCostPrice="0.3552135" MenuGroup="" PreparationTypeId="3" PreparationTypeName="Barra" PLU="" FamilyId="2" FamilyName="Cafés y tés" PreparationOrderId="7" PreparationOrderName="Preparar" Quantity="1.00" UnitCostPrice="0.5153" TotalCostPrice="0.5153" UserId="19" UnitPrice="1.80" DiscountRate="0.00" CashDiscount="0.00" OfferId="" OfferCode="" TotalAmount="1.80" PriceListId="2">
+              <Addins>
+                <Addin ProductId="1652" ProductName="Normal" SaleFormatId="1790" SaleFormatName="Normal" SaleFormatRatio="1.00" MainBarcode="" ProductPrice="0.00" VatId="3" VatRate="0.10" SurchargeRate="0.014" ProductCostPrice="0.160083" PreparationTypeId="3" PreparationTypeName="Barra" PLU="" FamilyId="21" FamilyName="Extras" />
+              </Addins>
+            </Line>
+          </Lines>
+          <Discounts DiscountRate="0.00" CashDiscount="0.00" />
+          <Payments />
+          <Offers />
+          <Totals GrossAmount="1.80" NetAmount="1.64" VatAmount="0.16" SurchargeAmount="0.00">
+            <Taxes>
+              <Tax VatRate="0.10" SurchargeRate="0.014" GrossAmount="1.80" NetAmount="1.64" VatAmount="0.16" SurchargeAmount="0.00" />
+            </Taxes>
+          </Totals>
+        </Item>
+      </InvoiceItems>
+      <Payments>
+        <Payment MethodId="1" MethodName="Efectivo" Amount="1.80" PaidAmount="1.80" ChangeAmount="0.00" TipAmount="0.00" Date="2023-01-02T09:01:10" PosId="4" IsPrepayment="false">
+          <ExtraInformation><![CDATA[]]></ExtraInformation>
+        </Payment>
+      </Payments>
+      <Totals GrossAmount="1.80" NetAmount="1.64" VatAmount="0.16" SurchargeAmount="0.00">
+        <Taxes>
+          <Tax VatRate="0.10" SurchargeRate="0.014" GrossAmount="1.80" NetAmount="1.64" VatAmount="0.16" SurchargeAmount="0.00" />
+        </Taxes>
+      </Totals>
+    </Invoice>
