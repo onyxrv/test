@@ -1,0 +1,47 @@
+import xml.etree.ElementTree as ET
+
+
+
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
+
+def write_file(file_path, content):
+    with open(file_path, 'w') as file:
+        file.write(content)
+
+def replace_snippets(original_code, replacements_code, invoice_numbers):
+    original_tree = ET.fromstring(original_code)
+    replacements_tree = ET.fromstring(replacements_code)
+
+    for invoice_number in invoice_numbers:
+        for invoice in original_tree.findall(".//Invoice[@Number='{}']".format(invoice_number)):
+            print("Matching invoice found:", invoice_number)  # Add this line to debug
+            item_date = invoice.find(".//Item").get("Date")
+
+            for line in replacements_tree.findall(".//Lines"):
+                line.find(".//Line").set("CreationDate", item_date)
+
+            for payment in replacements_tree.findall(".//Payments"):
+                payment.find(".//Payment").set("Date", item_date)
+
+            invoice.find(".//InvoiceItems/Item").remove(invoice.find(".//Lines"))
+            invoice.find(".//InvoiceItems/Item").remove(invoice.find(".//Payments"))
+
+            invoice.find(".//InvoiceItems/Item").append(replacements_tree.find(".//Lines"))
+            invoice.find(".//InvoiceItems/Item").append(replacements_tree.find(".//Payments"))
+
+    return ET.tostring(original_tree, encoding="unicode")
+
+original_file_path = '2023-01-01.xml'
+replacements_file_path = '1.80.txt'
+invoice_numbers_file_path = 'invoice_numbers.txt'
+
+original_code = read_file(original_file_path)
+replacements_code = read_file(replacements_file_path)
+invoice_numbers = [int(x.strip()) for x in read_file(invoice_numbers_file_path).splitlines()]
+
+modified_code = replace_snippets(original_code, replacements_code, invoice_numbers)
+
+output_file_path = 'modified_code.xml'
+write_file(output_file_path, modified_code)
